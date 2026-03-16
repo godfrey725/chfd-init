@@ -2,6 +2,18 @@
 
 `chfd-init` is a global Claude Code skill for bootstrapping a project with a CHFD (Claude Code Harness-First Development) scaffold.
 
+## Background
+
+CHFD is a practical Claude Code development framework distilled from OpenAI's official Harness Engineering methodology and adapted for Claude Code's agent-first workflow.
+
+The methodological reference comes from OpenAI's Harness Engineering article:
+- English: https://openai.com/index/harness-engineering/
+- Chinese: https://openai.com/zh-Hans-CN/index/harness-engineering/
+
+This project does not copy OpenAI's harness model verbatim. Instead, it extracts the core ideas that are broadly transferable to Claude Code — explicit operating contracts, read-first repository guidance, durable plans, verification-before-completion, and reusable execution prompts — and turns them into a directly usable repository scaffold and initialization skill.
+
+In other words, `chfd-init` is an opinionated Claude Code implementation of the same general harness-first philosophy: define the working environment, rules, docs structure, and execution flow upfront so agentic development becomes more reliable, repeatable, and easier to verify.
+
 ## Purpose
 
 This skill turns the approved CHFD method into a reusable project initializer. It generates an agent-readable repository harness so Claude Code has explicit operating guidance before project-specific code and workflows are added.
