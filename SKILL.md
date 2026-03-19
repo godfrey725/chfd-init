@@ -143,6 +143,29 @@ At the end, report:
 - overwritten files
 - suggested reading order
 
+## Post-Generation Next Steps
+
+Make clear that generation is only the start. `chfd-init` creates a starter harness, not a fully configured development environment.
+
+Tell the user to customize the project-specific guidance before substantial implementation work begins.
+
+Minimum files to update first:
+- `AGENTS.md`
+- `CLAUDE.md`
+- `docs/index.md`
+- `docs/architecture/system-overview.md`
+- `docs/architecture/domain-map.md`
+- `docs/architecture/layering-rules.md`
+- `docs/standards/golden-rules.md`
+
+If `full` mode was generated, also recommend updating:
+- `docs/standards/coding-rules.md`
+- `docs/standards/testing-rules.md`
+- `docs/runbooks/local-dev.md`
+- `docs/runbooks/verification.md`
+
+Point users to `README.md` for the fuller explanation of what must be customized before real development.
+
 ## Common Mistakes
 
 - Generating into the wrong directory: always use the current working directory only.

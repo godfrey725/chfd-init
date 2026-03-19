@@ -109,6 +109,23 @@ It should also recommend a next reading order:
 3. relevant standards and architecture docs
 4. active plans, decisions, or runbooks relevant to the current work
 
+It should also make clear that generated does not mean ready. The scaffold is only a starter harness until the repository-specific guidance has been customized.
+
+Minimum files to update first:
+- `AGENTS.md`
+- `CLAUDE.md`
+- `docs/index.md`
+- `docs/architecture/system-overview.md`
+- `docs/architecture/domain-map.md`
+- `docs/architecture/layering-rules.md`
+- `docs/standards/golden-rules.md`
+
+If the user generated `full`, recommend updating these before starting implementation:
+- `docs/standards/coding-rules.md`
+- `docs/standards/testing-rules.md`
+- `docs/runbooks/local-dev.md`
+- `docs/runbooks/verification.md`
+
 ## Notes
 
 - Generation always targets the current working directory.

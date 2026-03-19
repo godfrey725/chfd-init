@@ -90,6 +90,54 @@ After running `chfd-init`, read in this order:
 
 Then adapt the generated repository guidance to the real project instead of leaving the starter text unchanged.
 
+## After Initialization: What You Must Customize Before Real Development
+
+`chfd-init` creates a starter harness, not a fully configured project. Generation gives you the structure and default documents, but real development should start only after the generic starter text has been replaced with project-specific guidance.
+
+### Must-update files first
+
+Treat these as the minimum P0 set before doing substantial implementation work:
+- `AGENTS.md`
+- `CLAUDE.md`
+- `docs/index.md`
+- `docs/architecture/system-overview.md`
+- `docs/architecture/domain-map.md`
+- `docs/architecture/layering-rules.md`
+- `docs/standards/golden-rules.md`
+
+These files define the operating contract for agents and humans:
+- what the project is and what it is for
+- where code should live
+- which dependencies and cross-layer calls are allowed
+- how work should be planned, verified, and constrained
+
+### Should-update before writing code in `full` mode
+
+If you generated the `full` scaffold, complete these next:
+- `docs/standards/coding-rules.md`
+- `docs/standards/testing-rules.md`
+- `docs/runbooks/local-dev.md`
+- `docs/runbooks/verification.md`
+
+These documents make the harness executable in practice by defining:
+- code organization and naming rules
+- test expectations and coverage boundaries
+- local setup and startup steps
+- the commands required to verify changes before completion
+
+### Quick readiness checklist
+
+Before treating the scaffold as ready for real work, confirm that the docs now answer these questions clearly:
+- What is this repository for?
+- What are the main modules or domains?
+- Which layer should a change belong to?
+- Which dependencies are allowed or forbidden?
+- How do you run the project locally?
+- What commands verify a change?
+- Where do active plans and technical decisions live?
+
+If those questions are still answered only by generic template text, the harness is initialized but not yet configured.
+
 ## Maintenance Notes
 
 - Keep behavior rules in `SKILL.md`.
