@@ -11,7 +11,7 @@ Initialize the current working directory with a CHFD (Claude Code Harness-First 
 
 Core principle: create an agent-readable repository harness first, then adapt it to the real project.
 
-Templates live under `templates/` and are the source of truth. Generate into the current working directory only.
+Templates live under `templates/<lang>/` and are the source of truth. Generate into the current working directory only.
 
 ## When to Use
 
@@ -30,9 +30,10 @@ Do not use this skill when:
 
 | Input | Effect |
 | --- | --- |
-| `chfd-init` | Generate the full scaffold |
-| `chfd-init full` | Generate the full scaffold |
-| `chfd-init minimal` | Generate the minimal scaffold |
+| `chfd-init` | Prompt for language, then generate the full scaffold |
+| `chfd-init full` | Prompt for language, then generate the full scaffold |
+| `chfd-init full --lang zh` | Generate the full scaffold from the Chinese templates |
+| `chfd-init minimal --lang en` | Generate the minimal scaffold from the English templates |
 | `chfd-init full --no-commands` | Omit `.claude/commands/*` |
 | `chfd-init full --no-runbooks` | Omit `docs/runbooks/*` |
 | `chfd-init minimal --force` | Overwrite existing generated targets |
@@ -44,9 +45,12 @@ Do not use this skill when:
 - `minimal`
 
 ### Flags
+- `--lang en|zh`
 - `--no-commands`
 - `--no-runbooks`
 - `--force`
+
+If `--lang` is omitted, prompt the user to choose between `中文（推荐）` and `English` before generation begins.
 
 `minimal --no-runbooks` is valid but has no additional effect because `minimal` does not generate runbooks.
 
@@ -90,6 +94,7 @@ Always operate on the current working directory. Do not infer or switch to anoth
 - `docs/plans/active/README.md`
 
 ### Subtraction rules
+- `--lang en|zh`: select the language-specific template tree
 - `--no-commands`: remove `.claude/commands/*` from the target set
 - `--no-runbooks`: remove `docs/runbooks/*` from the target set
 - `--force`: allow overwrite of already existing generated targets
@@ -98,15 +103,16 @@ Always operate on the current working directory. Do not infer or switch to anoth
 
 1. Parse arguments into mode and flags.
 2. Default to `full` if no mode is supplied.
-3. Reject unknown modes or flags with a clear error.
-4. Resolve the target file list from mode plus flags.
-5. For each target file, map it to the matching template under `templates/`.
-6. Ensure the parent directory exists.
-7. If the target file is missing, create it.
-8. If the target file exists and `--force` is not set, skip it.
-9. If the target file exists and `--force` is set, overwrite it.
-10. Report created, skipped, and overwritten files.
-11. Recommend next steps:
+3. Resolve language from `--lang en|zh`, or prompt interactively when omitted.
+4. Reject unknown modes or flags with a clear error.
+5. Resolve the target file list from mode plus flags.
+6. For each target file, map it to the matching template under `templates/<lang>/`.
+7. Ensure the parent directory exists.
+8. If the target file is missing, create it.
+9. If the target file exists and `--force` is not set, skip it.
+10. If the target file exists and `--force` is set, overwrite it.
+11. Report created, skipped, and overwritten files.
+12. Recommend next steps:
    - read `AGENTS.md`
    - read `docs/index.md`
    - adapt standards, decisions, and architecture docs to the real project
@@ -128,7 +134,8 @@ Never silently replace user-authored files.
 Fail clearly for:
 - unknown mode
 - unknown flag
-- missing template file
+- invalid `--lang` value
+- missing template file in the selected language tree
 - write permission failures
 
 Non-error cases:

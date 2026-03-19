@@ -24,9 +24,24 @@ In practice, the scaffold gives a repo:
 - optional `.claude/commands/*` prompt contracts for planning, implementation, verification, and cleanup
 - safe non-destructive initialization rules by default
 
-## Install Location
+## Language Support
 
-- `~/.claude/skills/chfd-init/`
+`chfd-init` now supports two content template sets:
+- English templates under `templates/en/`
+- Chinese templates under `templates/zh/`
+
+Generated file paths and filenames stay the same across languages. Only the file content changes.
+
+### Default behavior
+If `--lang` is omitted, the skill should prompt the user to choose:
+- `中文（推荐）`
+- `English`
+
+This keeps manual usage friendly while still allowing automation to be explicit.
+
+### Explicit language selection
+- `--lang zh`: generate Chinese scaffold content
+- `--lang en`: generate English scaffold content
 
 ## Generated Modes
 
@@ -68,6 +83,7 @@ Use `minimal` when you want a lightweight starting point without the fuller stan
 
 ## Flags
 
+- `--lang en|zh`: choose the template language explicitly
 - `--no-commands`: omit `.claude/commands/*`
 - `--no-runbooks`: omit `docs/runbooks/*`
 - `--force`: overwrite existing generated targets
@@ -77,7 +93,7 @@ Use `minimal` when you want a lightweight starting point without the fuller stan
 - Generation applies to the current working directory only.
 - Existing files are skipped by default.
 - Only `--force` allows overwrite.
-- Templates under `templates/` are the source of truth.
+- Language-specific templates under `templates/en/` and `templates/zh/` are the source of truth.
 - The skill never silently replaces user-authored files.
 
 ## Recommended Next Steps After Generation
@@ -141,7 +157,7 @@ If those questions are still answered only by generic template text, the harness
 ## Maintenance Notes
 
 - Keep behavior rules in `SKILL.md`.
-- Keep generated file bodies in `templates/`.
+- Keep generated file bodies in `templates/en/` and `templates/zh/`.
 - Keep examples and mode matrix in `references/usage.md`.
 - Keep `full` aligned with the richer CHFD workflow it generates.
 - Keep `minimal` intentionally lean.

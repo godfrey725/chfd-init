@@ -6,7 +6,8 @@
 `chfd-init`
 
 Effect:
-- generates the `full` scaffold
+- prompts for language choice first
+- defaults to the `full` scaffold after language selection
 - creates a richer agent-first repository harness
 - skips existing files by default
 
@@ -14,8 +15,23 @@ Effect:
 `chfd-init full`
 
 Effect:
+- prompts for language choice first
 - generates the same complete harness as the default mode
 - includes root guidance, docs structure, decisions, runbooks, and `.claude/commands/*`
+
+### Full in Chinese
+`chfd-init full --lang zh`
+
+Effect:
+- generates the complete harness from the Chinese template set
+- keeps file paths unchanged while localizing document content
+
+### Minimal in English
+`chfd-init minimal --lang en`
+
+Effect:
+- generates the smallest viable harness from the English template set
+- keeps automation explicit and scriptable
 
 ### Minimal
 `chfd-init minimal`
@@ -87,9 +103,10 @@ Choose `minimal` if you want to add project documentation incrementally rather t
 
 | Input | Effect |
 | --- | --- |
-| `chfd-init` | Generate full scaffold |
-| `chfd-init full` | Generate full scaffold |
-| `chfd-init minimal` | Generate minimal scaffold |
+| `chfd-init` | Prompt for language, then generate full scaffold |
+| `chfd-init full` | Prompt for language, then generate full scaffold |
+| `chfd-init full --lang zh` | Generate full scaffold from Chinese templates |
+| `chfd-init minimal --lang en` | Generate minimal scaffold from English templates |
 | `chfd-init full --no-commands` | Omit `.claude/commands/*` |
 | `chfd-init full --no-runbooks` | Omit `docs/runbooks/*` |
 | `chfd-init minimal --force` | Overwrite existing generated targets |
