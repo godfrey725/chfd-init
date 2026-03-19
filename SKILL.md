@@ -1,6 +1,6 @@
 ---
 name: chfd-init
-description: Use when initializing a Claude Code project with a reusable repository harness, starter docs, and command templates for agent-first development.
+description: Use when initializing a Claude Code project with a reusable repository harness, starter docs, decisions, runbooks, and command templates for agent-first development.
 ---
 
 # CHFD Init
@@ -71,8 +71,10 @@ Always operate on the current working directory. Do not infer or switch to anoth
 - `docs/architecture/system-overview.md`
 - `docs/architecture/layering-rules.md`
 - `docs/architecture/domain-map.md`
+- `docs/decisions/README.md`
 - `docs/runbooks/local-dev.md`
 - `docs/runbooks/debugging.md`
+- `docs/runbooks/observability.md`
 - `docs/runbooks/verification.md`
 - `.claude/commands/plan.md`
 - `.claude/commands/implement.md`
@@ -107,7 +109,7 @@ Always operate on the current working directory. Do not infer or switch to anoth
 11. Recommend next steps:
    - read `AGENTS.md`
    - read `docs/index.md`
-   - adapt standards and architecture docs to the real project
+   - adapt standards, decisions, and architecture docs to the real project
 
 ## Safe Write Policy
 

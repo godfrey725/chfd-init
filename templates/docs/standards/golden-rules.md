@@ -15,6 +15,11 @@
 - Prefer deletion over compatibility layers that no longer serve a need.
 - Prefer the smallest worthwhile cleanup over unrelated refactoring.
 
+## Standing Guidance
+- If the same problem appears in multiple tasks, convert it into a doc, script, lint rule, or test.
+- Put stable repository rules in `docs/standards/`, not in ad hoc prompts.
+- Put durable technical choices in `docs/decisions/` when the rationale should stay searchable.
+
 ## Delivery Rules
 - Do not report work complete without fresh verification evidence.
 - Call out what was verified, what was not verified, and any remaining risks.

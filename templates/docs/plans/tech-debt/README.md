@@ -11,3 +11,12 @@ Capture known improvements that matter but are not yet scheduled.
 - Explain why the debt matters.
 - Describe the likely area of impact.
 - Prefer concrete follow-up ideas over vague complaints.
+- Link related plans, incidents, or review feedback when they help explain priority.
+
+## Suggested Entry Shape
+- title
+- why it matters
+- current cost or risk
+- affected areas
+- recommended next step
+- any known owner or trigger for revisiting

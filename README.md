@@ -20,7 +20,7 @@ This skill turns the approved CHFD method into a reusable project initializer. I
 
 In practice, the scaffold gives a repo:
 - root operating contracts in `AGENTS.md` and `CLAUDE.md`
-- a docs tree for standards, architecture, plans, and runbooks
+- a docs tree for standards, architecture, plans, decisions, and runbooks
 - optional `.claude/commands/*` prompt contracts for planning, implementation, verification, and cleanup
 - safe non-destructive initialization rules by default
 
@@ -40,6 +40,7 @@ Generated files include:
 - standards docs under `docs/standards/`
 - plan tracking docs under `docs/plans/`
 - architecture docs under `docs/architecture/`
+- decision docs under `docs/decisions/`
 - operational runbooks under `docs/runbooks/`
 - `.claude/commands/plan.md`
 - `.claude/commands/implement.md`
@@ -50,6 +51,7 @@ The generated `full` scaffold is meant to be directly usable, not just a placeho
 - a read-first workflow anchored by `docs/index.md`
 - explicit expectations for planning non-trivial work
 - documented architecture and boundary awareness
+- a place to keep durable engineering decisions
 - verification-before-completion rules
 - documentation update expectations when behavior or workflows change
 
@@ -62,7 +64,7 @@ Creates only the smallest viable harness:
 - `docs/standards/golden-rules.md`
 - `docs/plans/active/README.md`
 
-Use `minimal` when you want a lightweight starting point without the fuller standards, architecture, runbook, and command-doc layers.
+Use `minimal` when you want a lightweight starting point without the fuller standards, architecture, decisions, runbook, and command-doc layers.
 
 ## Flags
 
@@ -84,7 +86,7 @@ After running `chfd-init`, read in this order:
 1. `AGENTS.md`
 2. `docs/index.md`
 3. relevant standards and architecture docs
-4. active plans or runbooks that apply to the current task
+4. active plans, decisions, or runbooks that apply to the current task
 
 Then adapt the generated repository guidance to the real project instead of leaving the starter text unchanged.
 
@@ -96,6 +98,7 @@ Then adapt the generated repository guidance to the real project instead of leav
 - Keep `full` aligned with the richer CHFD workflow it generates.
 - Keep `minimal` intentionally lean.
 - Keep v1 framework-agnostic.
+- Keep safe-write behavior unchanged unless there is an explicit design change.
 
 ## Extension Guidance
 

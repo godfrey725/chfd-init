@@ -15,7 +15,7 @@ Effect:
 
 Effect:
 - generates the same complete harness as the default mode
-- includes root guidance, docs structure, runbooks, and `.claude/commands/*`
+- includes root guidance, docs structure, decisions, runbooks, and `.claude/commands/*`
 
 ### Minimal
 `chfd-init minimal`
@@ -41,6 +41,7 @@ Effect:
 - generates the rich `full` scaffold
 - omits `docs/runbooks/local-dev.md`
 - omits `docs/runbooks/debugging.md`
+- omits `docs/runbooks/observability.md`
 - omits `docs/runbooks/verification.md`
 
 ### Minimal with force
@@ -66,7 +67,8 @@ The generated files establish:
 - stable repository rules in `docs/standards/`
 - architecture and boundary guidance in `docs/architecture/`
 - plan and execution context under `docs/plans/`
-- repeatable local-dev, debugging, and verification procedures in `docs/runbooks/`
+- durable technical decision capture under `docs/decisions/`
+- repeatable local-dev, debugging, observability, and verification procedures in `docs/runbooks/`
 - reusable command prompts under `.claude/commands/`
 
 The `full` scaffold is intentionally richer than a bare starter. It is meant to reduce repeated prompting and give agents explicit guidance for planning, implementation, verification, and documentation updates.
@@ -105,7 +107,7 @@ It should also recommend a next reading order:
 1. `AGENTS.md`
 2. `docs/index.md`
 3. relevant standards and architecture docs
-4. active plans or runbooks relevant to the current work
+4. active plans, decisions, or runbooks relevant to the current work
 
 ## Notes
 
@@ -115,3 +117,4 @@ It should also recommend a next reading order:
 - Existing files without `--force` are skips, not failures.
 - `full` is the default because it best expresses the CHFD workflow.
 - `minimal` is intentionally lean and should not be expanded just to mirror `full`.
+- Safe-write behavior is unchanged by the richer docs tree.

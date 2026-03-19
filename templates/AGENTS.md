@@ -12,7 +12,16 @@ Before making changes, read these in order:
 2. `docs/standards/README.md`
 3. `docs/architecture/README.md` if structure or ownership matters
 4. `docs/plans/active/` for any in-flight work related to the task
-5. the specific standards, architecture notes, and runbooks referenced by those docs
+5. the specific standards, architecture notes, decisions, and runbooks referenced by those docs
+
+## Source of Truth
+When guidance appears in multiple places, prefer this order:
+1. the current task or user request
+2. repository docs under `docs/`
+3. repository-local command docs under `.claude/commands/`
+4. older plans or historical notes
+
+If docs conflict, fix the docs instead of inventing a private rule for the current task.
 
 ## Operating Loop
 1. Understand the task and read the relevant docs.
@@ -40,6 +49,15 @@ Store active plans under `docs/plans/active/` when the work needs durable tracki
 - Follow existing patterns unless the docs explicitly change them.
 - Keep module boundaries explicit; do not couple unrelated layers just to make a change faster.
 - Prefer deletion over compatibility layers that no longer serve the system.
+
+## Repeated Friction Rule
+If the same confusion, review feedback, or manual repair happens repeatedly, convert it into one of these:
+- a clearer doc
+- a reusable command or script
+- a lint rule or test
+- a runbook step
+
+Do not rely on repeated prompting to preserve an important workflow.
 
 ## Verification Expectations
 Do not call work complete without fresh verification evidence.

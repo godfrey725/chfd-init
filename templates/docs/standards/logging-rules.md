@@ -13,3 +13,4 @@ Logging should help diagnose behavior without overwhelming normal development wo
 - Include enough context to trace what happened.
 - Remove temporary debug logging before finishing work unless it is intentionally retained.
 - Keep log wording consistent so operators can search reliably.
+- If important signals are hard to observe, document the gap in a runbook or tech-debt note.

@@ -10,19 +10,21 @@
 ## Default Workflow
 ### 1. Understand
 - Read `docs/index.md` first.
-- Follow its links into standards, architecture, plans, and runbooks.
+- Follow its links into standards, architecture, plans, decisions, and runbooks.
 - If the task touches only one small area, keep exploration narrow.
 
 ### 2. Plan
-Write a plan when the task is non-trivial, spans multiple files, changes behavior, or has architectural risk.
+Write a lightweight plan when the task is non-trivial, spans multiple files, changes behavior, or has architectural risk.
 
-A good plan includes:
+A good lightweight plan includes:
 - goal
 - constraints
 - files involved
 - implementation approach
 - validation steps
 - done condition
+
+Create or update a durable plan under `docs/plans/active/` when work needs multi-step tracking, handoff safety, or more than one session to complete.
 
 ### 3. Implement
 - Make the smallest worthwhile change.
@@ -63,3 +65,4 @@ When reporting work:
 - summarize what was verified
 - state what could not be verified
 - call out remaining risks or assumptions
+- distinguish clearly between completed work and recommended follow-up
